@@ -1,0 +1,273 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal {
+    background: #fff;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 860px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: #f0f0f0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.modal-close:hover {
+    background: #ddd;
+}
+
+.modal-left {
+    flex: 1;
+    background: #fdf3f3;
+    padding: 40px 36px;
+}
+
+.modal-left h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.3;
+    margin-bottom: 8px;
+}
+
+.modal-left .subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 28px;
+}
+
+.steps {
+    list-style: none;
+    margin-bottom: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.steps li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.step-num {
+    min-width: 22px;
+    height: 22px;
+    background: #d94040;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+}
+
+.steps li a {
+    color: #d94040;
+    text-decoration: underline;
+}
+
+.modal-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 13px;
+    color: #888;
+    font-style: italic;
+}
+
+.note-icon {
+    min-width: 20px;
+    height: 20px;
+    background: #d94040;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+}
+
+.modal-right {
+    width: 360px;
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.badges {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.badge {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.badge-icon {
+    min-width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.badge-icon.windows {
+    background: #e8f0fe;
+}
+
+.badge-icon.info {
+    background: #e8f4fd;
+}
+
+.badge-icon.eye {
+    background: #fde8e8;
+}
+
+.badge strong {
+    font-weight: 600;
+}
+
+.badge a {
+    color: #d94040;
+}
+
+.divider {
+    height: 1px;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #d94040;
+}
+
+.form-group input::placeholder {
+    color: #bbb;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #d94040;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: background 0.2s;
+}
+
+.submit-btn:hover {
+    background: #c03030;
+}
+
+.check-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.check-group label {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+    line-height: 1.5;
+}
+
+.check-group input[type="checkbox"] {
+    margin-top: 2px;
+    accent-color: #d94040;
+    min-width: 14px;
+}
+
+.check-group a {
+    color: #d94040;
+    text-decoration: underline;
+}
+
+.open-btn {
+    padding: 14px 28px;
+    background: #d94040;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.open-btn:hover {
+    background: #c03030;
+}
