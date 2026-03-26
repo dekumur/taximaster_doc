@@ -123,9 +123,9 @@
                 <img src="img/no-wifi.svg" alt="no-wifi" class="icon">
                 <p>Работа в такси как подработка: вся правда!</p>
             </div>
-            <div class="card" data-video="https://youtu.be/o2ZCYtAAuYI?si=3-Xa3CSXrS2RhROR">
+            <div class="card" data-video="https://www.youtube.com/embed/8RF3avKXqZM">
                 <img src="img/no-wifi.svg" alt="no-wifi" class="icon">
-                <p>Как службам такси работать без интернета в 2025 году</p>
+                <p>Телефония для такси: современное решение от Такси-Мастер</p>
             </div>
         </div>
         </div>
@@ -171,49 +171,27 @@
     </section>
     <section class="updates">
         <div class="container">
-        <div class="updates-header">
             <h3>ОБНОВЛЕНИЕ СИСТЕМЫ</h3>
-            <button>Смотреть все обновления</button>
-        </div>
-        <div class="update-box">
-            <strong>Версия 3.16</strong>
-            <ul>
-                <li>Улучшена работа с водителями</li>
-                <li>Новый алгоритм распределения заказов</li>
-                <li>Исправление ошибок оплаты</li>
-            </ul>
-        </div> 
+            <div class="update-box">
+                <div class="update-box-header">
+                    <strong>Версия 3.16</strong>
+                    <button>Смотреть все обновления</button>
+                </div>
+                <ul>
+                    <li>Улучшена работа с водителями</li>
+                    <li>Новый алгоритм распределения заказов</li>
+                    <li>Исправление ошибок оплаты</li>
+                </ul>
+            </div>
         </div>
     </section>
     <section class="support">
         <div class="container">
         <h3>НЕ НАШЛИ ОТВЕТ?</h3>
-        <button>Связаться с техподдержкой</button>
+        <button><span><img src="img/sms.svg" alt="sms"></span>Связаться с техподдержкой</button>
     </div>
     </section>
-    <footer class="footer">
-        <div class="container">
-        <div class="footer-grid">
-            <div>
-                <h4>Контакты</h4>
-                <p>Ижевск, Советская, 12А</p>
-                <p>info@tm-crm.ru</p>
-                <p>+7 (499) 705-48-67</p>
-            </div>
-
-            <div>
-                <h4>Популярные статьи из блога:</h4>
-                <p>Законы о такси 2025</p>
-                <p>Налог для такси</p>
-                <p>Ошибки в заказах</p>
-            </div>
-        </div>
-
-        <div class="copyright">
-            © 2003–2026 «TaxiMaster»
-        </div>
-        </div>
-    </footer>
+    <?php include("php/footer.php");?>
     <script>
         document.querySelector('.demo-btn').onclick = () => {
         document.getElementById('modal').style.display = 'flex';
