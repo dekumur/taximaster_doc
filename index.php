@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="icon" href="img/favicon.ico" type="image/ico">
     <title>Главная</title>
 </head>
@@ -142,30 +143,30 @@
         <h2>РАЗДЕЛЫ</h2>
 
         <div class="section-grid">
-            <div class="section-card">
+            <a href="taximaster.php" class="section-card">
                 <img src="img/taximaster.png" alt="taximaster">
                 <p>Программный комплекс <span>Такси Мастер</span></p>
-            </div>
-            <div class="section-card">
+            </a>
+            <a href="taxophone.php" class="section-card">
                 <img src="img/taxophone.png" alt="taxophone">
                 <p>Сервис TaxoPhone</p>
-            </div>
-            <div class="section-card">
+            </a>
+            <a href="tmmarket.php" class="section-card">
                 <img src="img/tmmarket.png" alt="tmmarket">
                 <p>Центр обмена заказами <span>TMMarket</span></p>
-            </div>
-            <div class="section-card">
+            </a>
+            <a href="tmdriver.php" class="section-card">
                 <img src="img/tmdriver.png" alt="tmdriver">
                 <p>Продвижение для водителей <span>TMDriver</span></p>
-            </div>
-            <div class="section-card">
+            </a>
+            <a href="robot.php" class="section-card">
                 <img src="img/robot.png" alt="robot">
                 <p>Сервис для обработки звонков <span>Голосовой робот</span></p>
-            </div>
-            <div class="section-card">
+            </a>
+            <a href="web.php" class="section-card">
                 <img src="img/web.png" alt="web">
                 <p>Веб-сервисы <span>Такси Мастер</span></p>
-            </div>
+            </a>
         </div>
         </div>
     </section>
