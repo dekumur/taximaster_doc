@@ -259,7 +259,6 @@
     text-decoration: underline;
 }
 
-/* ===== FAQ ===== */
 .faq {
     margin-top: 40px;
 }
@@ -332,4 +331,98 @@
     font-size: 14px;
     color: #555;
     line-height: 1.65;
+}
+
+.info-box {
+    margin-top: 28px;
+    background: #fffde7;
+    border: 1px solid #f0d060;
+    border-radius: 6px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info-box p {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.ext-link {
+    color: #1a6bb5;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: color 0.15s;
+}
+
+.ext-link:hover {
+    color: #0d4a8a;
+    text-decoration: underline;
+}
+
+.ext-icon {
+    width: 12px;
+    height: 12px;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.taxo-section {
+    margin-top: 32px;
+}
+
+.taxo-section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e0e0e0;
+    margin-bottom: 14px;
+}
+
+.ext-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.ext-list li {
+    font-size: 14px;
+}
+
+.taxo-social {
+    margin-top: 24px;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.65;
+}
+
+.taxo-social p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+}
+
+.taxo-social-label {
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #111;
+}
+
+.social-link {
+    font-weight: 600;
+    color: #cc0000 !important;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.social-link:hover {
+    color: #aa0000 !important;
 }

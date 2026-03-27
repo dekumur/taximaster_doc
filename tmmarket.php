@@ -53,13 +53,13 @@
         <div class="container">
             <a href="index.php">Главная</a>
             <span class="breadcrumb-sep">›</span>
-            <span>Раздел Такси-Мастер</span>
+            <span>Раздел Центр обмена заказами TMMarket</span>
         </div>
     </div>
     <div class="page-layout">
         <div class="container page-layout__inner">
             <aside class="sidebar">
-                <a href="taximaster.php" class="sidebar-item active">
+                <a href="taximaster.php" class="sidebar-item">
                     <span class="sidebar-icon">
                         <img src="img/taximaster.png" alt="">
                     </span>
@@ -71,7 +71,7 @@
                     </span>
                     <span>Сервис <strong>TaxoPhone</strong></span>
                 </a>
-                <a href="tmmarket.php" class="sidebar-item">
+                <a href="tmmarket.php" class="sidebar-item active">
                     <span class="sidebar-icon">
                         <img src="img/tmmarket.png" alt="">
                     </span>
@@ -97,73 +97,20 @@
                 </a>
             </aside>
             <main class="content-area">
-                <h1 class="content-title">Такси-Мастер</h1>
+                <h1 class="content-title">Центр обмена заказами TMMarket</h1>
                 <p class="content-description">
-                    Здравствуйте! Это страница с документацией по программе «Такси-Мастер». Здесь собраны советы по работе и обслуживанию
-                    программы для пользователей любого уровня. По вопросам можно обратиться в техподдержку через
-                    <a href="#" class="red-link">Единый личный кабинет</a>.
+                    Центр обмена заказами (ЦОЗ) TMMarket — это автоматическая система для продажи и покупки заказов в службе такси. Она позволяет искать машину на заказ сразу во всех службах-участниках системы.
                 </p>
-                <div class="tabs">
-                    <button class="tab active" data-tab="interested">Интересующимся</button>
-                    <button class="tab" data-tab="users">Пользователям</button>
-                    <button class="tab" data-tab="accountants">Бухгалтерам</button>
-                    <button class="tab" data-tab="video">Видеоуроки</button>
-                    <button class="tab" data-tab="drivers">Водителям</button>
-                    <button class="tab" data-tab="admins">Системным администраторам</button>
-                </div>
                 <div class="tab-panel active" id="tab-interested">
-                    <p class="tab-intro">В разделе представлена документация для потенциальных пользователей программы «Такси-Мастер».</p>
                     <ul class="content-list">
-                        <li><a href="#">Системные требования</a></li>
-                        <li><a href="#">Активация лицензионного ключа Такси-Мастер</a></li>
-                        <li><a href="#">Дистрибутив</a></li>
-                        <li><a href="#">Серверная часть Такси-Мастер</a></li>
-                        <li><a href="#">Клиентская часть Такси-Мастер</a></li>
-                        <li><a href="#">Карточка заказа</a></li>
-                        <li><a href="#">Процесс внедрения Такси-Мастер</a></li>
-                        <li><a href="#">Такси-Мастер CallCenter: функционал доступный по умолчанию</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-users">
-                    <p class="tab-intro">Документация для действующих пользователей программы «Такси-Мастер».</p>
-                    <ul class="content-list">
-                        <li><a href="#">Руководство пользователя</a></li>
-                        <li><a href="#">Работа с заказами</a></li>
-                        <li><a href="#">Управление водителями</a></li>
-                        <li><a href="#">Настройка тарифов</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-accountants">
-                    <p class="tab-intro">Документация для бухгалтеров по работе с программой.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Финансовые отчёты</a></li>
-                        <li><a href="#">Настройка расчётов</a></li>
-                        <li><a href="#">Экспорт данных</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-video">
-                    <p class="tab-intro">Видеоуроки по работе с программой «Такси-Мастер».</p>
-                    <ul class="content-list">
-                        <li><a href="#">Установка и настройка</a></li>
-                        <li><a href="#">Создание первого заказа</a></li>
-                        <li><a href="#">Подключение водительского приложения</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-drivers">
-                    <p class="tab-intro">Раздел для водителей и экипажей.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Водительское приложение</a></li>
-                        <li><a href="#">Приём заказов</a></li>
-                        <li><a href="#">Настройка смен</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-admins">
-                    <p class="tab-intro">Техническая документация для системных администраторов.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Требования к серверу</a></li>
-                        <li><a href="#">Установка серверной части</a></li>
-                        <li><a href="#">Резервное копирование</a></li>
-                        <li><a href="#">Перенос сервера</a></li>
+                        <li><a href="#">Центр обмена заказами</a></li>
+                        <li><a href="#">Общая информация по работе с заказами из TMMarket</a></li>
+                        <li><a href="#">Пополнение счета в ЦОЗ</a></li>
+                        <li><a href="#">Инструкция по запросу списания с баланса ЦОЗ за услуги компании</a></li>
+                        <li><a href="#">Схема работы центра обмена заказами</a></li>
+                        <li><p>Интеграции ТММаркет:</p>
+                            <ol><a href="#">РБТ</a></ol>
+                            <ol><a href="#">UP&UP</a></ol></li>
                     </ul>
                 </div>
                 <div class="faq">
