@@ -1,3 +1,32 @@
+<?php
+include("php/connect_db.php");
+
+$article = null;
+
+$stmt = $conn->prepare("SELECT id FROM sections WHERE slug = 'taxophone'");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$section = $stmt->get_result()->fetch_assoc();
+$section_id = $section['id'] ?? null;
+
+if (isset($_GET['article'])) {
+    $slug = $_GET['article'];
+    $stmt = $conn->prepare("SELECT * FROM articles WHERE slug = ?");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("s", $slug);
+    $stmt->execute();
+    $article = $stmt->get_result()->fetch_assoc();
+}
+
+$articles = [];
+if ($section_id) {
+    $stmt = $conn->prepare("SELECT title, slug FROM articles WHERE section_id = ? ORDER BY id");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("i", $section_id);
+    $stmt->execute();
+    $articles = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -85,21 +114,31 @@
                 </a>
             </aside>
             <main class="content-area">
+                <?php if ($article): ?>
+                <a href="taxophone.php" class="back-link">← Назад</a>
+                <h1 class="content-title"><?= htmlspecialchars($article['title']) ?></h1>
+
+                <?php if ($article['file_type'] == 'html'): ?>
+                    <?php include($article['file_path']); ?>
+                <?php elseif ($article['file_type'] == 'pdf'): ?>
+                    <iframe src="<?= $article['file_path'] ?>" width="100%" height="800px"></iframe>
+                <?php endif; ?>
+
+            <?php else: ?>
                 <h1 class="content-title">TaxoPhone</h1>
+
                 <ul class="content-list">
-                    <li><a href="#">История изменений в приложении TaxoPhone</a></li>
-                    <li><a href="#">Обзор возможностей приложения TaxoPhone</a></li>
-                    <li><a href="#">Настройки влияющие на работу TaxoPhone</a></li>
-                    <li><a href="#">Настройки TaxoPhone в Такси-Мастер</a></li>
-                    <li><a href="#">Реферальная система клиентов</a></li>
-                    <li><a href="#">Настройка промокодов</a></li>
-                    <li><a href="#">Бонусная система для клиентов, примеры её использования</a></li>
-                    <li><a href="#">Семейный счёт</a></li>
-                    <li><a href="#">Совместные поездки</a></li>
-                    <li><a href="#">Заказы-аукционы</a></li>
-                    <li><a href="#">Отчёт «Заказы через Таксофон. Отзывы клиентов»</a></li>
-                    <li><a href="#">AppMetrica</a></li>
-                    <li><a href="#">Шаблон E-mail для отправки чека</a></li>
+                    <?php if (!empty($articles)): ?>
+                        <?php foreach ($articles as $item): ?>
+                            <li>
+                                <a href="taxophone.php?article=<?= $item['slug'] ?>">
+                                    <?= htmlspecialchars($item['title']) ?>
+                                </a>
+                            </li>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <li>Нет статей</li>
+                    <?php endif; ?>
                 </ul>
                 <div class="info-box">
                     <p>Анкеты для создания или обновления приложения Вы можете заполнить на сайте:
@@ -155,7 +194,7 @@
                         <img src="img/external.svg" alt="external" class="ext-icon">
                     </a>
                 </div>
-
+                <?php endif; ?>
             </main>
         </div>
     </div>

@@ -1,11 +1,41 @@
+<?php
+include("php/connect_db.php");
+
+$article = null;
+
+$stmt = $conn->prepare("SELECT id FROM sections WHERE slug = 'tmdriver'");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$section = $stmt->get_result()->fetch_assoc();
+$section_id = $section['id'] ?? null;
+
+if (isset($_GET['article'])) {
+    $slug = $_GET['article'];
+    $stmt = $conn->prepare("SELECT * FROM articles WHERE slug = ?");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("s", $slug);
+    $stmt->execute();
+    $article = $stmt->get_result()->fetch_assoc();
+}
+
+$articles = [];
+if ($section_id) {
+    $stmt = $conn->prepare("SELECT title, slug FROM articles WHERE section_id = ? ORDER BY id");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("i", $section_id);
+    $stmt->execute();
+    $articles = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/taxophone.css">
+    <link rel="stylesheet" href="css/toc.css">
     <link rel="icon" href="img/favicon.ico" type="image/ico">
     <title>TMDriver - TaxiMaster</title>
 </head>
@@ -97,11 +127,21 @@
                 </a>
             </aside>
             <main class="content-area">
-                <h1 class="content-title">TMDriver для Android</h1>
-                <p class="content-description">
-                    TMDriver для Android — мобильное приложение для водителей. Приложение является клиентской частью системы и не функционирует без подключения к серверу. TMDriver можно запустить на телефоне без соединения, однако в этом случае водитель не сможет принимать заказы и выполнять действия в системе Такси-Мастер.
-                </p>
-                <div class="info-box">
+            <?php if ($article): ?>
+            <a href="tmdriver.php" class="back-link">← Назад</a>
+            <h1 class="content-title"><?= htmlspecialchars($article['title']) ?></h1>
+
+            <?php if ($article['file_type'] == 'html'): ?>
+                <?php include($article['file_path']); ?>
+            <?php elseif ($article['file_type'] == 'pdf'): ?>
+                <iframe src="<?= $article['file_path'] ?>" width="100%" height="800px"></iframe>
+            <?php endif; ?>
+        <?php else: ?>
+            <h1 class="content-title">TMDriver для Android</h1>
+            <p class="content-description">
+                TMDriver для Android — мобильное приложение для водителей. Приложение является клиентской частью системы и не функционирует без подключения к серверу. TMDriver можно запустить на телефоне без соединения, однако в этом случае водитель не сможет принимать заказы и выполнять действия в системе Такси-Мастер.
+            </p>
+            <div class="info-box">
                     <p>TMDriver 3.16 доступен для скачивания в магазинах приложений:
                         <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">Play Market<img src="img/external.svg" alt="" class="ext-icon"></a>
                         <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">AppGalley<img src="img/external.svg" alt="" class="ext-icon"></a>
@@ -109,6 +149,21 @@
                     </p>
                     <p>Обратите внимание: Приложение предназначено для устройств на Android и требует наличия сервисов Google (Google Play Services).</p>
                 </div>
+                <?php include("php/toc.php");?>
+
+            <ul class="content-list">
+                <?php if (!empty($articles)): ?>
+                    <?php foreach ($articles as $item): ?>
+                        <li>
+                            <a href="tmmarket.php?article=<?= $item['slug'] ?>">
+                                <?= htmlspecialchars($item['title']) ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li>Нет статей</li>
+                <?php endif; ?>
+            </ul>
                 <div class="faq">
                     <h2 class="faq-title">Часто задаваемые вопросы</h2>
 
@@ -158,10 +213,12 @@
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </main>
         </div>
     </div>
     <?php include("php/footer.php");?>
     <script src = "js/taximaster.js"></script>
+    <script src = "js/toc.js"></script>
 </body>
 </html>

@@ -1,3 +1,34 @@
+<?php
+include("php/connect_db.php");
+
+$article = null;
+
+if (isset($_GET['article'])) {
+    $slug = $_GET['article'];
+    $stmt = $conn->prepare("SELECT * FROM articles WHERE slug = ?");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("s", $slug);
+    $stmt->execute();
+    $article = $stmt->get_result()->fetch_assoc();
+}
+
+$stmt = $conn->prepare("SELECT key_name, title FROM categories WHERE section_id = 1 ORDER BY sort_order");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$tabs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+$stmt = $conn->prepare("SELECT title, slug, category FROM articles WHERE section_id = 1 ORDER BY id");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$result = $stmt->get_result();
+
+$articlesByCategory = [];
+while ($row = $result->fetch_assoc()) {
+    $cat = $row['category'] ?? 'other';
+    $articlesByCategory[$cat][] = $row;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -97,75 +128,45 @@
                 </a>
             </aside>
             <main class="content-area">
+
+            <?php if ($article): ?>
+                <a href="taximaster.php" class="back-link">← Назад</a>
+                <h1 class="content-title"><?= $article['title'] ?></h1>
+                <?php if ($article['file_type'] == 'html'): ?>
+                    <?php include($article['file_path']); ?>
+                <?php elseif ($article['file_type'] == 'pdf'): ?>
+                    <iframe src="<?= $article['file_path'] ?>" width="100%" height="800px"></iframe>
+                <?php endif; ?>
+            <?php else: ?>
                 <h1 class="content-title">Такси-Мастер</h1>
                 <p class="content-description">
-                    Здравствуйте! Это страница с документацией по программе «Такси-Мастер». Здесь собраны советы по работе и обслуживанию
-                    программы для пользователей любого уровня. По вопросам можно обратиться в техподдержку через
-                    <a href="#" class="red-link">Единый личный кабинет</a>.
+                    Здравствуйте! Это страница с документацией по программе «Такси-Мастер».
                 </p>
                 <div class="tabs">
-                    <button class="tab active" data-tab="interested">Интересующимся</button>
-                    <button class="tab" data-tab="users">Пользователям</button>
-                    <button class="tab" data-tab="accountants">Бухгалтерам</button>
-                    <button class="tab" data-tab="video">Видеоуроки</button>
-                    <button class="tab" data-tab="drivers">Водителям</button>
-                    <button class="tab" data-tab="admins">Системным администраторам</button>
-                </div>
-                <div class="tab-panel active" id="tab-interested">
-                    <p class="tab-intro">В разделе представлена документация для потенциальных пользователей программы «Такси-Мастер».</p>
+                    <?php foreach ($tabs as $i => $tab): ?>
+                        <button class="tab <?= $i === 0 ? 'active' : '' ?>" data-tab="<?= $tab['key_name'] ?>">
+                            <?= $tab['title'] ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>     
+            <?php foreach ($tabs as $i => $tab): ?>
+                <div class="tab-panel <?= $i === 0 ? 'active' : '' ?>" id="tab-<?= $tab['key_name'] ?>">
                     <ul class="content-list">
-                        <li><a href="#">Системные требования</a></li>
-                        <li><a href="#">Активация лицензионного ключа Такси-Мастер</a></li>
-                        <li><a href="#">Дистрибутив</a></li>
-                        <li><a href="#">Серверная часть Такси-Мастер</a></li>
-                        <li><a href="#">Клиентская часть Такси-Мастер</a></li>
-                        <li><a href="#">Карточка заказа</a></li>
-                        <li><a href="#">Процесс внедрения Такси-Мастер</a></li>
-                        <li><a href="#">Такси-Мастер CallCenter: функционал доступный по умолчанию</a></li>
+                        <?php if (!empty($articlesByCategory[$tab['key_name']])): ?>
+                            <?php foreach ($articlesByCategory[$tab['key_name']] as $item): ?>
+                                <li>
+                                    <a href="taximaster.php?article=<?= $item['slug'] ?>">
+                                        <?= $item['title'] ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <li>Нет статей</li>
+                        <?php endif; ?>
                     </ul>
                 </div>
-                <div class="tab-panel" id="tab-users">
-                    <p class="tab-intro">Документация для действующих пользователей программы «Такси-Мастер».</p>
-                    <ul class="content-list">
-                        <li><a href="#">Руководство пользователя</a></li>
-                        <li><a href="#">Работа с заказами</a></li>
-                        <li><a href="#">Управление водителями</a></li>
-                        <li><a href="#">Настройка тарифов</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-accountants">
-                    <p class="tab-intro">Документация для бухгалтеров по работе с программой.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Финансовые отчёты</a></li>
-                        <li><a href="#">Настройка расчётов</a></li>
-                        <li><a href="#">Экспорт данных</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-video">
-                    <p class="tab-intro">Видеоуроки по работе с программой «Такси-Мастер».</p>
-                    <ul class="content-list">
-                        <li><a href="#">Установка и настройка</a></li>
-                        <li><a href="#">Создание первого заказа</a></li>
-                        <li><a href="#">Подключение водительского приложения</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-drivers">
-                    <p class="tab-intro">Раздел для водителей и экипажей.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Водительское приложение</a></li>
-                        <li><a href="#">Приём заказов</a></li>
-                        <li><a href="#">Настройка смен</a></li>
-                    </ul>
-                </div>
-                <div class="tab-panel" id="tab-admins">
-                    <p class="tab-intro">Техническая документация для системных администраторов.</p>
-                    <ul class="content-list">
-                        <li><a href="#">Требования к серверу</a></li>
-                        <li><a href="#">Установка серверной части</a></li>
-                        <li><a href="#">Резервное копирование</a></li>
-                        <li><a href="#">Перенос сервера</a></li>
-                    </ul>
-                </div>
+            <?php endforeach; ?>
+            <?php endif; ?>
                 <div class="faq">
                     <h2 class="faq-title">Часто задаваемые вопросы</h2>
 

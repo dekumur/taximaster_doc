@@ -1,3 +1,32 @@
+<?php
+include("php/connect_db.php");
+
+$article = null;
+
+$stmt = $conn->prepare("SELECT id FROM sections WHERE slug = 'tmmarket'");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$section = $stmt->get_result()->fetch_assoc();
+$section_id = $section['id'] ?? null;
+
+if (isset($_GET['article'])) {
+    $slug = $_GET['article'];
+    $stmt = $conn->prepare("SELECT * FROM articles WHERE slug = ?");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("s", $slug);
+    $stmt->execute();
+    $article = $stmt->get_result()->fetch_assoc();
+}
+
+$articles = [];
+if ($section_id) {
+    $stmt = $conn->prepare("SELECT title, slug FROM articles WHERE section_id = ? ORDER BY id");
+    if (!$stmt) die("Ошибка: " . $conn->error);
+    $stmt->bind_param("i", $section_id);
+    $stmt->execute();
+    $articles = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -97,22 +126,34 @@
                 </a>
             </aside>
             <main class="content-area">
-                <h1 class="content-title">Центр обмена заказами TMMarket</h1>
-                <p class="content-description">
-                    Центр обмена заказами (ЦОЗ) TMMarket — это автоматическая система для продажи и покупки заказов в службе такси. Она позволяет искать машину на заказ сразу во всех службах-участниках системы.
-                </p>
-                <div class="tab-panel active" id="tab-interested">
-                    <ul class="content-list">
-                        <li><a href="#">Центр обмена заказами</a></li>
-                        <li><a href="#">Общая информация по работе с заказами из TMMarket</a></li>
-                        <li><a href="#">Пополнение счета в ЦОЗ</a></li>
-                        <li><a href="#">Инструкция по запросу списания с баланса ЦОЗ за услуги компании</a></li>
-                        <li><a href="#">Схема работы центра обмена заказами</a></li>
-                        <li><p>Интеграции ТММаркет:</p>
-                            <ol><a href="#">РБТ</a></ol>
-                            <ol><a href="#">UP&UP</a></ol></li>
-                    </ul>
-                </div>
+            <?php if ($article): ?>
+            <a href="tmmarket.php" class="back-link">← Назад</a>
+            <h1 class="content-title"><?= htmlspecialchars($article['title']) ?></h1>
+
+            <?php if ($article['file_type'] == 'html'): ?>
+                <?php include($article['file_path']); ?>
+            <?php elseif ($article['file_type'] == 'pdf'): ?>
+                <iframe src="<?= $article['file_path'] ?>" width="100%" height="800px"></iframe>
+            <?php endif; ?>
+        <?php else: ?>
+            <h1 class="content-title">Центр обмена заказами TMMarket</h1>
+            <p class="content-description">
+                Центр обмена заказами (ЦОЗ) TMMarket — это автоматическая система для продажи и покупки заказов в службе такси. Она позволяет искать машину на заказ сразу во всех службах-участниках системы.
+            </p>
+
+            <ul class="content-list">
+                <?php if (!empty($articles)): ?>
+                    <?php foreach ($articles as $item): ?>
+                        <li>
+                            <a href="tmmarket.php?article=<?= $item['slug'] ?>">
+                                <?= htmlspecialchars($item['title']) ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <li>Нет статей</li>
+                <?php endif; ?>
+            </ul>
                 <div class="faq">
                     <h2 class="faq-title">Часто задаваемые вопросы</h2>
 
@@ -162,6 +203,7 @@
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </main>
         </div>
     </div>
