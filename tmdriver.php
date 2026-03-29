@@ -35,50 +35,11 @@ if ($section_id) {
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/taxophone.css">
-    <link rel="stylesheet" href="css/toc.css">
     <link rel="icon" href="img/favicon.ico" type="image/ico">
     <title>TMDriver - TaxiMaster</title>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header_wrap">
-                <div class="logo">
-                    <a href="index.php"><img src="img/logo.svg" alt="logo"></a>
-                </div>
-                <div class="search-box">
-                    <div class="input-wrap">
-                        <img src="img/search.svg" alt="search">
-                        <input type="text" placeholder="Найти информацию...">
-                    </div>
-                </div>
-                <nav class="nav">
-                    <div class="dropdown">
-                        <a href="#">Документация <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Общая информация</a>
-                            <a href="#">Настройка</a>
-                            <a href="#">Ошибки</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">API <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Методы</a>
-                            <a href="#">Авторизация</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Обновления <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Версии</a>
-                            <a href="#">История</a>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>
+    <?php include("php/header.php");?>
     <div class="breadcrumb">
         <div class="container">
             <a href="index.php">Главная</a>
@@ -149,8 +110,6 @@ if ($section_id) {
                     </p>
                     <p>Обратите внимание: Приложение предназначено для устройств на Android и требует наличия сервисов Google (Google Play Services).</p>
                 </div>
-                <?php include("php/toc.php");?>
-
             <ul class="content-list">
                 <?php if (!empty($articles)): ?>
                     <?php foreach ($articles as $item): ?>
@@ -219,6 +178,6 @@ if ($section_id) {
     </div>
     <?php include("php/footer.php");?>
     <script src = "js/taximaster.js"></script>
-    <script src = "js/toc.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

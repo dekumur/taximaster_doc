@@ -269,5 +269,46 @@
 }
 
 .open-btn:hover {
-    background: #c03030;
+    background: #d94040;
+}
+
+.modal-support .modal-left {
+    background: #fff;
+    padding: 32px 36px 16px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-support .modal-left h2 {
+    font-size: 22px;
+}
+
+.modal-support .modal-right {
+    width: 100%;
+    padding: 24px 36px 32px;
+}
+
+.modal-support .form-group input,
+.modal-support textarea {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.modal-support textarea {
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    color: #333;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.modal-support textarea::placeholder {
+    color: #bbb;
+}
+
+.modal-support textarea:focus {
+    border-color: #d94040;
 }

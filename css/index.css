@@ -41,7 +41,8 @@
     border-radius: 5px;
 }
 
-.demo-btn {
+.demo-btn, 
+.btn-all-updates {
     margin-top: 20px;
     padding: 12px 25px;
     background: red;
@@ -53,6 +54,7 @@
     font-weight: 600;
 }
 
+.btn-all-updates:hover , 
 .demo-btn:hover {
     background: rgb(230, 2, 2);
 }

@@ -1,3 +1,11 @@
+<?php
+include("php/connect_db.php");
+
+$stmt = $conn->prepare("SELECT * FROM updates ORDER BY sort_order DESC LIMIT 1");
+if (!$stmt) die("Ошибка: " . $conn->error);
+$stmt->execute();
+$latestUpdate = $stmt->get_result()->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -61,39 +69,45 @@
         </div>
     </div>
     </div>
-    <header>
-        <div class="container">
-            <div class="header_wrap">
-                <div class="logo">
-                    <a href="index.php"><img src="img/logo.svg" alt="logo"></a>
-                </div>
-                <nav class="nav">
-                    <div class="dropdown">
-                        <a href="#">Документация <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Общая информация</a>
-                            <a href="#">Настройка</a>
-                            <a href="#">Ошибки</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">API <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Методы</a>
-                            <a href="#">Авторизация</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Обновления <span><img src="img/arrow_down.svg"></span></a>
-                        <div class="dropdown-menu">
-                            <a href="#">Версии</a>
-                            <a href="#">История</a>
-                        </div>
-                    </div>
-                </nav>
+<div class="modal-overlay" id="support-modal" style="display:none">
+    <div class="modal modal-support">
+        <button class="modal-close" onclick="document.getElementById('support-modal').style.display='none'">×</button>
+        <div class="modal-left">
+            <h2>Связаться с техподдержкой</h2>
+            <p class="subtitle">Опишите проблему и мы свяжемся с вами в ближайшее время</p>
+        </div>
+        <div class="modal-right">
+            <div class="form-group">
+                <label>Ваш ИД</label>
+                <input type="text" placeholder="0000">
+            </div>
+            <div class="form-group">
+                <label>Ваше имя</label>
+                <input type="text" placeholder="Иван Иванов">
+            </div>
+            <div class="form-group">
+                <label>Электронная почта</label>
+                <input type="email" placeholder="example@mail.com">
+            </div>
+            <div class="form-group">
+                <label>Мобильный телефон</label>
+                <input type="tel" placeholder="+7 (___) ___-__-__">
+            </div>
+            <div class="form-group">
+                <label>Опишите проблему</label>
+                <textarea placeholder="Подробно опишите вашу проблему..." rows="4"></textarea>
+            </div>
+            <button class="submit-btn">Отправить заявку</button>
+            <div class="check-group">
+                <label>
+                    <input type="checkbox">
+                    <span>Я согласен с <a href="#">обработкой персональных данных</a></span>
+                </label>
             </div>
         </div>
-    </header>
+    </div>
+</div>
+    <?php include("php/header.php");?>
     <section class="hero">
         <div class="container">
             <h1>Документация TaxiMaster</h1>
@@ -176,7 +190,7 @@
             <div class="update-box">
                 <div class="update-box-header">
                     <strong>Версия 3.16</strong>
-                    <button>Смотреть все обновления</button>
+                    <a href="updates.php" class="btn-all-updates">Смотреть все обновления</a>
                 </div>
                 <ul>
                     <li>Улучшена работа с водителями</li>
@@ -188,9 +202,12 @@
     </section>
     <section class="support">
         <div class="container">
-        <h3>НЕ НАШЛИ ОТВЕТ?</h3>
-        <button><span><img src="img/sms.svg" alt="sms"></span>Связаться с техподдержкой</button>
-    </div>
+            <h3>НЕ НАШЛИ ОТВЕТ?</h3>
+            <button onclick="document.getElementById('support-modal').style.display='flex'">
+                <span><img src="img/sms.svg" alt="sms"></span>
+                Связаться с техподдержкой
+            </button>
+        </div>
     </section>
     <?php include("php/footer.php");?>
     <script>
@@ -199,5 +216,6 @@
     }
     </script>
     <script src = "js/video.js"></script>
+    <script src="js/search.js"></script>
 </body>
 </html>

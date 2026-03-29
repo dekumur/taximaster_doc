@@ -1,0 +1,159 @@
+.updates-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 40px 0 24px;
+    color: #1a1a1a;
+}
+
+.update-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 16px;
+}
+
+.update-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.update-version {
+    font-weight: 700;
+    font-size: 15px;
+    color: #1a1a1a;
+}
+
+.update-date {
+    font-size: 13px;
+    color: #888;
+}
+
+.update-changes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.update-changes li {
+    position: relative;
+    padding-left: 14px;
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+}
+
+.update-changes li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: #e0001a;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1;
+}
+
+.no-updates {
+    text-align: center;
+    color: #888;
+    padding: 40px 0;
+}
+
+.sidebar-versions-title {
+    font-weight: 700;
+    font-size: 13px;
+    color: #888;
+    text-transform: uppercase;
+    padding: 12px 16px 8px;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-version-date {
+    display: block;
+    font-size: 11px;
+    color: #aaa;
+    margin-top: 2px;
+}
+
+.update-content h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 28px 0 10px;
+}
+
+.update-content h2 {
+    font-size: 17px;
+    font-weight: 700;
+    font-style: italic;
+    margin: 22px 0 8px;
+}
+
+.update-content h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 18px 0 6px;
+}
+
+.update-content p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.update-content img {
+    max-width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    margin: 12px 0;
+}
+
+.update-content a {
+    color: #3a5bd9;
+    text-decoration: underline;
+}
+
+.update-toc {
+    background: #f7f8fc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 24px;
+}
+
+.update-toc h2 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-style: normal;
+}
+
+.update-toc a {
+    display: block;
+    font-size: 13px;
+    color: #3a5bd9;
+    text-decoration: none;
+    padding: 2px 0;
+}
+
+.update-toc a:hover {
+    text-decoration: underline;
+}
+
+.update-toc a.toc-sub {
+    padding-left: 16px;
+}
+
+.update-toc a.toc-subsub {
+    padding-left: 32px;
+}
+
+.list-date {
+    font-size: 12px;
+    color: #888;
+    margin-left: 8px;
+}
