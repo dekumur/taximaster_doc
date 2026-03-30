@@ -12,18 +12,13 @@
             </div>
             <nav class="nav">
                 <div class="dropdown">
-                    <a href="#">Документация <span><img src="img/arrow_down.svg"></span></a>
-                    <div class="dropdown-menu">
-                        <a href="#">Общая информация</a>
-                        <a href="#">Настройка</a>
-                        <a href="#">Ошибки</a>
-                    </div>
+                    <a href="docs.php">Документация</a>
                 </div>
                 <div class="dropdown">
                     <a href="#">API <span><img src="img/arrow_down.svg"></span></a>
                     <div class="dropdown-menu">
                         <a href="section.php?s=tm_api">TM API</a>
-                        <a href="#">Авторизация</a>
+                        <a href="section.php?s=common_api">Common API</a>
                     </div>
                 </div>
                 <div class="dropdown">
