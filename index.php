@@ -131,15 +131,15 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
                 <p>Как службам такси работать без интернета в 2025 году</p>
             </div>
             <div class="card" data-video="https://www.youtube.com/embed/KOoAvLPs0jY">
-                <img src="img/driver.svg" alt="no-wifi" class="icon">
+                <img src="img/driver.svg" alt="motivation" class="icon">
                 <p>Как повысить мотивацию водителей</p>
             </div>
             <div class="card" data-video="https://www.youtube.com/embed/coLMyP8wB_U">
-                <img src="img/no-wifi.svg" alt="no-wifi" class="icon">
+                <img src="img/no-wifi.svg" alt="true" class="icon">
                 <p>Работа в такси как подработка: вся правда!</p>
             </div>
             <div class="card" data-video="https://www.youtube.com/embed/8RF3avKXqZM">
-                <img src="img/no-wifi.svg" alt="no-wifi" class="icon">
+                <img src="img/no-wifi.svg" alt="telephone" class="icon">
                 <p>Телефония для такси: современное решение от Такси-Мастер</p>
             </div>
         </div>

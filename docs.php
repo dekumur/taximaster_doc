@@ -1,14 +1,12 @@
 <?php
 include("php/connect_db.php");
 
-// Получаем section_id для документации
 $stmt = $conn->prepare("SELECT id FROM sections WHERE slug = 'docs'");
 if (!$stmt) die("Ошибка: " . $conn->error);
 $stmt->execute();
 $section = $stmt->get_result()->fetch_assoc();
 $section_id = $section['id'] ?? null;
 
-// Все статьи раздела
 $allDocs = [];
 if ($section_id) {
     $stmt = $conn->prepare("SELECT * FROM articles WHERE section_id = ? ORDER BY id");
@@ -17,8 +15,6 @@ if ($section_id) {
     $stmt->execute();
     $allDocs = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 }
-
-// Открыта конкретная статья
 $currentDoc = null;
 if (isset($_GET['article'])) {
     $aslug = $_GET['article'];
@@ -57,10 +53,8 @@ if (isset($_GET['article'])) {
         <?php endif; ?>
     </div>
 </div>
-
 <div class="page-layout">
     <div class="container page-layout__inner">
-
         <aside class="sidebar">
             <p class="sidebar-versions-title">Документы</p>
             <?php foreach ($allDocs as $doc): ?>
@@ -69,19 +63,14 @@ if (isset($_GET['article'])) {
                     <span><?= htmlspecialchars($doc['title']) ?></span>
                 </a>
             <?php endforeach; ?>
-
             <?php if (empty($allDocs)): ?>
                 <p style="padding: 12px 16px; color: #aaa; font-size: 13px;">Нет документов</p>
             <?php endif; ?>
         </aside>
-
         <main class="content-area">
-
             <?php if ($currentDoc): ?>
-
                 <a href="docs.php" class="back-link">← Назад</a>
                 <h1 class="content-title"><?= htmlspecialchars($currentDoc['title']) ?></h1>
-
                 <?php if ($currentDoc['file_type'] == 'html'): ?>
                     <?php if (file_exists($currentDoc['file_path'])): ?>
                         <?php include($currentDoc['file_path']); ?>
@@ -96,12 +85,9 @@ if (isset($_GET['article'])) {
                         style="border: none; border-radius: 8px;">
                     </iframe>
                 <?php endif; ?>
-
             <?php else: ?>
-
                 <h1 class="content-title">Документация</h1>
                 <p class="content-description">Выберите документ из списка слева.</p>
-
                 <ul class="content-list">
                     <?php foreach ($allDocs as $doc): ?>
                         <li>
@@ -111,9 +97,7 @@ if (isset($_GET['article'])) {
                         </li>
                     <?php endforeach; ?>
                 </ul>
-
             <?php endif; ?>
-
         </main>
     </div>
 </div>
