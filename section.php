@@ -62,26 +62,19 @@ if (isset($_GET['article'])) {
         <?php endif; ?>
     </div>
 </div>
-
 <div class="page-layout">
     <div class="container page-layout__inner">
-
         <main class="content-area" style="width: 100%;">
-
             <?php if ($article): ?>
-
                 <a href="section.php?s=<?= htmlspecialchars($slug) ?>" class="back-link">← Назад</a>
                 <h1 class="content-title"><?= htmlspecialchars($article['title']) ?></h1>
-
                 <?php if ($article['file_type'] == 'html'): ?>
                     <?php include($article['file_path']); ?>
                 <?php elseif ($article['file_type'] == 'pdf'): ?>
                     <iframe src="<?= htmlspecialchars($article['file_path']) ?>" width="100%" height="900px" style="border:none; border-radius:8px;"></iframe>
                 <?php endif; ?>
-
             <?php elseif ($section): ?>
                 <h1 class="content-title"><?= htmlspecialchars($section['title']) ?></h1>
-
                 <ul class="content-list">
                     <?php if (!empty($articles)): ?>
                         <?php foreach ($articles as $item): ?>
@@ -95,17 +88,13 @@ if (isset($_GET['article'])) {
                         <li>Нет статей</li>
                     <?php endif; ?>
                 </ul>
-
             <?php else: ?>
                 <h1 class="content-title">Раздел не найден</h1>
                 <p>Запрашиваемый раздел не существует. <a href="index.php">Вернуться на главную</a></p>
-
             <?php endif; ?>
-
         </main>
     </div>
 </div>
-
 <?php include("php/footer.php"); ?>
 <script src="js/taximaster.js"></script>
 <script src="js/search.js"></script>
