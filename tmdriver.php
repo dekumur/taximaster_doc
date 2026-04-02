@@ -104,9 +104,9 @@ if ($section_id) {
             </p>
             <div class="info-box">
                     <p>TMDriver 3.16 доступен для скачивания в магазинах приложений:
-                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">Play Market<img src="img/external.svg" alt="" class="ext-icon"></a>
-                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">AppGalley<img src="img/external.svg" alt="" class="ext-icon"></a>
-                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">Rustore<img src="img/external.svg" alt="" class="ext-icon"></a>
+                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">Play Market<img src="img/external.svg" alt="external" class="ext-icon"></a>
+                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">AppGalley<img src="img/external.svg" alt="external" class="ext-icon"></a>
+                        <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">Rustore<img src="img/external.svg" alt="external" class="ext-icon"></a>
                     </p>
                     <p>Обратите внимание: Приложение предназначено для устройств на Android и требует наличия сервисов Google (Google Play Services).</p>
                 </div>

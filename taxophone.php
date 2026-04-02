@@ -118,13 +118,13 @@ if ($section_id) {
                     <p>Анкеты для создания или обновления приложения Вы можете заполнить на сайте:
                         <a href="http://taxophone.taximaster.ru/" target="_blank" class="ext-link">
                             http://taxophone.taximaster.ru/
-                            <img src="img/external.svg" alt="" class="ext-icon">
+                            <img src="img/external.svg" alt="external" class="ext-icon">
                         </a>
                     </p>
                     <p>Утилита выбора цвета:
                         <a href="http://www.taximaster.ru/taxophone-color-editor/" target="_blank" class="ext-link">
                             http://www.taximaster.ru/taxophone-color-editor/
-                            <img src="img/external.svg" alt="" class="ext-icon">
+                            <img src="img/external.svg" alt="external" class="ext-icon">
                         </a>
                     </p>
                 </div>

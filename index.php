@@ -14,6 +14,7 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/index.css">
+    <meta name="description" content="Здесь находится техническая документация о программе Такси-Мастер: инструкция по установке и эксплуатации, описание функциональных характеристик и технической архитектуры">
     <link rel="icon" href="img/favicon.ico" type="image/ico">
     <title>Главная</title>
 </head>
@@ -108,6 +109,7 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
     </div>
 </div>
     <?php include("php/header.php");?>
+    <main>
     <section class="hero">
         <div class="container">
             <h1>Документация TaxiMaster</h1>
@@ -148,7 +150,7 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
             <iframe id="videoFrame"
                 src=""
                 frameborder="0"
-                allowfullscreen>
+                allowfullscreen title="Популярное">
             </iframe>
         </div>
     </section>
@@ -209,6 +211,7 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
             </button>
         </div>
     </section>
+    </main>
     <?php include("php/footer.php");?>
     <script>
         document.querySelector('.demo-btn').onclick = () => {

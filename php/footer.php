@@ -5,16 +5,16 @@
                 <h4>Контакты</h4>
                 <ul>
                     <li>
-                        <img src="img/location.svg" alt=""> Ижевск, Советская, 12А
+                        <img src="img/location.svg" alt="location"> Ижевск, Советская, 12А
                     </li>
                     <li>
-                        <img src="img/clock.svg" alt=""> пн-пт 09:00-18:00
+                        <img src="img/clock.svg" alt="clock"> пн-пт 09:00-18:00
                     </li>
                     <li>
-                        <img src="img/email.svg" alt=""> sales@bitmaster.ru
+                        <img src="img/email.svg" alt="email"> sales@bitmaster.ru
                     </li>
                     <li>
-                        <img src="img/phone.svg" alt=""> +7 (499) 709-84-87
+                        <img src="img/phone.svg" alt="phone"> +7 (499) 709-84-87
                     </li>
                 </ul>
                 <div class="footer-socials">

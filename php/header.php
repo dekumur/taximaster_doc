@@ -15,7 +15,7 @@
                     <a href="docs.php">Документация</a>
                 </div>
                 <div class="dropdown">
-                    <a href="#">API <span><img src="img/arrow_down.svg"></span></a>
+                    <a href="#">API <span><img src="img/arrow_down.svg" alt="arrow_down"></span></a>
                     <div class="dropdown-menu">
                         <a href="section.php?s=tm_api">TM API</a>
                         <a href="section.php?s=common_api">Common API</a>
