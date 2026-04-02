@@ -49,40 +49,40 @@ if ($section_id) {
     </div>
     <div class="page-layout">
         <div class="container page-layout__inner">
-            <aside class="sidebar">
+<aside class="sidebar">
                 <a href="taximaster.php" class="sidebar-item">
                     <span class="sidebar-icon">
-                        <img src="img/taximaster.png" alt="">
+                        <img src="img/taximaster.webp" alt="taximaster">
                     </span>
                     <span>Программный комплекс <strong>Такси-Мастер</strong></span>
                 </a>
                 <a href="taxophone.php" class="sidebar-item">
                     <span class="sidebar-icon">
-                        <img src="img/taxophone.png" alt="">
+                        <img src="img/taxophone.png" alt="raxophone">
                     </span>
                     <span>Сервис <strong>TaxoPhone</strong></span>
                 </a>
                 <a href="tmmarket.php" class="sidebar-item">
                     <span class="sidebar-icon">
-                        <img src="img/tmmarket.png" alt="">
+                        <img src="img/tmmarket.png" alt="tmmarket">
                     </span>
                     <span>Центр обмена заказами <strong>TMMarket</strong></span>
                 </a>
-                <a href="tmdriver.php" class="sidebar-item active">
+                <a href="tmdriver.php" class="sidebar-item">
                     <span class="sidebar-icon">
-                        <img src="img/tmdriver.png" alt="">
+                        <img src="img/tmdriver.png" alt="tmdriver">
                     </span>
                     <span>Продвижение для водителей <strong>TMDriver</strong></span>
                 </a>
                 <a href="robot.php" class="sidebar-item">
                     <span class="sidebar-icon">
-                        <img src="img/robot.png" alt="">
+                        <img src="img/robot.png" alt="robot">
                     </span>
                     <span>Сервис для обработки звонков <strong>Голосовой робот</strong></span>
                 </a>
-                <a href="web.php" class="sidebar-item">
+                <a href="web.php" class="sidebar-item active">
                     <span class="sidebar-icon">
-                        <img src="img/web.png" alt="">
+                        <img src="img/web.png" alt="web">
                     </span>
                     <span>Веб-сервисы <strong>Такси Мастер</strong></span>
                 </a>

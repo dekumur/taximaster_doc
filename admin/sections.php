@@ -50,8 +50,6 @@ $sections = $conn->query("SELECT * FROM sections ORDER BY id")->fetch_all(MYSQLI
     <?php include("parts/topbar.php"); ?>
     <main class="admin-main">
         <h1 class="page-title">Разделы</h1>
-
-        <!-- Форма добавления/редактирования -->
         <div class="admin-form-card">
             <h2><?= $edit ? 'Редактировать раздел' : 'Добавить раздел' ?></h2>
             <form method="POST">
@@ -76,8 +74,6 @@ $sections = $conn->query("SELECT * FROM sections ORDER BY id")->fetch_all(MYSQLI
                 </div>
             </form>
         </div>
-
-        <!-- Таблица разделов -->
         <div class="admin-table-wrap">
             <table class="admin-table">
                 <thead>

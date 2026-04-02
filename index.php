@@ -158,27 +158,27 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
 
         <div class="section-grid">
             <a href="taximaster.php" class="section-card">
-                <img src="img/taximaster.png" alt="taximaster">
+                <img src="img/taximaster.webp" alt="taximaster" loading="lazy">
                 <p>Программный комплекс <span>Такси Мастер</span></p>
             </a>
             <a href="taxophone.php" class="section-card">
-                <img src="img/taxophone.png" alt="taxophone">
+                <img src="img/taxophone.png" alt="taxophone" loading="lazy">
                 <p>Сервис TaxoPhone</p>
             </a>
             <a href="tmmarket.php" class="section-card">
-                <img src="img/tmmarket.png" alt="tmmarket">
+                <img src="img/tmmarket.webp" alt="tmmarket" loading="lazy" >
                 <p>Центр обмена заказами <span>TMMarket</span></p>
             </a>
             <a href="tmdriver.php" class="section-card">
-                <img src="img/tmdriver.png" alt="tmdriver">
+                <img src="img/tmdriver.webp" alt="tmdriver"loading="lazy" >
                 <p>Продвижение для водителей <span>TMDriver</span></p>
             </a>
             <a href="robot.php" class="section-card">
-                <img src="img/robot.png" alt="robot">
+                <img src="img/robot.png" alt="robot" loading="lazy">
                 <p>Сервис для обработки звонков <span>Голосовой робот</span></p>
             </a>
             <a href="web.php" class="section-card">
-                <img src="img/web.png" alt="web">
+                <img src="img/web.png" alt="web" loading="lazy">
                 <p>Веб-сервисы <span>Такси Мастер</span></p>
             </a>
         </div>
@@ -204,7 +204,7 @@ $latestUpdate = $stmt->get_result()->fetch_assoc();
         <div class="container">
             <h3>НЕ НАШЛИ ОТВЕТ?</h3>
             <button onclick="document.getElementById('support-modal').style.display='flex'">
-                <span><img src="img/sms.svg" alt="sms"></span>
+                <span><img src="img/sms.svg" alt="sms" loading="lazy"></span>
                 Связаться с техподдержкой
             </button>
         </div>
