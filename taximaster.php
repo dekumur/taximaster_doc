@@ -34,11 +34,30 @@ while ($row = $result->fetch_assoc()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Документация по программному комплексу Такси-Мастер — настройка тарифов, работа с водителями, отчёты и руководства для пользователей.">
+    <meta name="keywords" content="Такси-Мастер, настройка, тарифы, водители, диспетчер, инструкция">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Документация TaxiMaster">
+    <meta property="og:description" content="Полная документация по программному комплексу Такси-Мастер и смежным сервисам.">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/taximaster.css">
     <link rel="icon" href="img/favicon.ico" type="image/ico">
     <title>Такси-Мастер</title>
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108390133', 'ym');
+
+    ym(108390133, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/108390133" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 </head>
 <body>
     <?php include("php/header.php");?>

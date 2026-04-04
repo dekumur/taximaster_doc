@@ -312,3 +312,62 @@
 .modal-support textarea:focus {
     border-color: #d94040;
 }
+
+@media (max-width: 768px) {
+    .modal {
+        flex-direction: column;
+        max-height: 90vh;
+        overflow-y: auto;
+        border-radius: 12px;
+    }
+
+    .modal-left {
+        padding: 24px 20px;
+    }
+
+    .modal-left h2 {
+        font-size: 20px;
+    }
+
+    .modal-right {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .modal-support {
+        max-width: 100%;
+    }
+
+    .modal-support .modal-left {
+        padding: 20px 20px 12px;
+    }
+
+    .modal-support .modal-right {
+        padding: 16px 20px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-overlay {
+        padding: 12px;
+        align-items: flex-end;
+    }
+
+    .modal {
+        border-radius: 16px 16px 0 0;
+        max-height: 95vh;
+    }
+
+    .modal-left h2 {
+        font-size: 18px;
+    }
+
+    .badges {
+        gap: 10px;
+        margin-bottom: 16px;
+    }
+
+    .steps {
+        gap: 8px;
+    }
+}

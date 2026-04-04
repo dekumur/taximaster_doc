@@ -157,3 +157,73 @@
     color: #888;
     margin-left: 8px;
 }
+
+@media (max-width: 1024px) {
+    .page-layout__inner {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .updates-title {
+        font-size: 16px;
+        margin: 24px 0 16px;
+    }
+
+    .update-card {
+        padding: 16px;
+    }
+
+    .update-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+    }
+
+    .update-content h1 {
+        font-size: 18px;
+    }
+
+    .update-content h2 {
+        font-size: 15px;
+    }
+
+    .update-content h3 {
+        font-size: 14px;
+    }
+
+    .update-toc {
+        padding: 12px 14px;
+    }
+
+    .update-toc a.toc-sub {
+        padding-left: 10px;
+    }
+
+    .update-toc a.toc-subsub {
+        padding-left: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .update-version {
+        font-size: 14px;
+    }
+
+    .update-changes li {
+        font-size: 13px;
+    }
+
+    .sidebar-versions-title {
+        font-size: 12px;
+        padding: 10px 12px 6px;
+    }
+
+    .update-content p {
+        font-size: 13px;
+    }
+}

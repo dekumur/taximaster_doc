@@ -287,3 +287,166 @@ header {
 .input-wrap {
     position: relative;
 }
+
+@media (max-width: 1024px) {
+    .page-layout__inner {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .sidebar-item {
+        flex: 1 1 calc(50% - 8px);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 16px;
+    }
+
+    .header_wrap {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar-item {
+        flex: 1 1 100%;
+    }
+
+    .content-title {
+        font-size: 20px;
+    }
+
+    .tabs {
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    .tab {
+        flex: 1 1 calc(50% - 6px);
+        font-size: 13px;
+    }
+
+    .section-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .update-box-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .admin-sidebar {
+        display: none;
+    }
+
+    .admin-content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .tab {
+        flex: 1 1 100%;
+    }
+
+    .modal {
+        flex-direction: column;
+    }
+
+    .modal-right {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer-top {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .footer-blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 30px 0 0;
+    }
+
+    .footer-top {
+        gap: 24px;
+        padding-bottom: 24px;
+    }
+
+    .footer-blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .footer-contacts h4,
+    .footer-blog h4 {
+        font-size: 15px;
+        margin-bottom: 12px;
+    }
+
+    .footer-socials {
+        margin-top: 16px;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+        padding: 16px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-blog-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-contacts ul li {
+        font-size: 13px;
+    }
+
+    .footer-blog-grid ul li a {
+        font-size: 13px;
+    }
+
+    .footer-socials a {
+        width: 32px;
+        height: 32px;
+    }
+}

@@ -263,3 +263,70 @@
 .support button:hover {
     background: rgb(230, 2, 2);
 }
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .search-box .input-wrap {
+        width: 100%;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .section-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .update-box-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .support button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section-card {
+        height: auto;
+        padding: 20px;
+    }
+
+    .demo-btn,
+    .btn-all-updates {
+        width: 100%;
+    }
+
+    .popular {
+        padding: 24px 16px;
+    }
+
+    .sections {
+        padding: 30px 16px;
+    }
+
+    .updates {
+        padding: 24px 0;
+    }
+}

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /php/
+
+Sitemap: http://d98281rq.beget.tech/sitemap.xml
